@@ -1,0 +1,12 @@
+{
+  "auth": {
+    "github": {
+      "token": "my-token-here"
+    }
+  },
+  "projects": [
+    {
+      "uri": "gitcomteam/gitcom-workflow-scripts"
+    }
+  ]
+}
