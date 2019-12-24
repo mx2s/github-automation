@@ -132,4 +132,4 @@ dmypy.json
 .idea/
 
 # app files
-config/con
+config/config.json
