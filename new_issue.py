@@ -8,8 +8,7 @@ github_api = Github(login_or_token=config['auth']['github']['token'])
 repo = github_api.get_repo('mxss/gitcom-api')
 
 default_labels = [
-    repo.get_label("help wanted"),
-    repo.get_label("good first issue"),
+    repo.get_label("help wanted")
 ]
 
 issue_type_labels = [
