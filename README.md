@@ -10,6 +10,7 @@ Python scripts to automate your GitHub workflow such as bulk issue creation and 
 ## List of scripts - use example
 1. Bulk create issues
 ```
+python3 src/create_issues.py
 Select project:
 1 - gitcomteam/gitcom-api
 2 - gitcomteam/gitcom-front
