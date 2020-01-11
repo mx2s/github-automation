@@ -21,9 +21,16 @@ repo_uri = config['projects'][project_number-1]['uri']
 
 repo = github_api.get_repo(repo_uri)
 
+print("Selected project: {0}".format(repo_uri))
+
 default_labels = [
     repo.get_label("help wanted")
 ]
+
+print("\nDefault issue labels:")
+for label in default_labels:
+    print("'{0}'".format(label.name))
+print('***')
 
 issue_type_labels = [
     repo.get_label("enhancement"),
@@ -52,6 +59,7 @@ while True:
 
         print(created_issue)
         print('Issue #{0} was created!'.format(created_issue.number))
+        print('Issue url: https://github.com/{0}/issues/{1}'.format(repo_uri,created_issue.number))
         print('***\n')
     except Exception as e:
         print(e)
