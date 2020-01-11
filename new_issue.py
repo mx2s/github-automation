@@ -5,7 +5,21 @@ config = json.loads(open('./config/config.json', 'r').read())
 
 github_api = Github(login_or_token=config['auth']['github']['token'])
 
-repo = github_api.get_repo('mxss/gitcom-api')
+selected_repo = None
+
+repo_url = None
+i = 1
+
+print('Select project:')
+for project_to_pick in config['projects']:
+    repo_uri = config['projects'][i-1]['uri']
+    print('{0} - {1}'.format(i, repo_uri))
+    i += 1
+
+project_number = int(input('Select project:'))
+repo_uri = config['projects'][project_number-1]['uri']
+
+repo = github_api.get_repo(repo_uri)
 
 default_labels = [
     repo.get_label("help wanted")
@@ -24,10 +38,10 @@ while True:
         issue_labels = default_labels.copy()
 
         print('Select issue type:')
-        issue_type_index = 1
+        i = 1
         for type_label in issue_type_labels:
-            print('{0} - {1}'.format(issue_type_index, type_label.name))
-            issue_type_index += 1
+            print('{0} - {1}'.format(i, type_label.name))
+            i += 1
         selected_type_index = int(input('Enter number:')) - 1
 
         issue_labels.append(issue_type_labels[selected_type_index])
